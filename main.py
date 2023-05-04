@@ -3,7 +3,7 @@ from load import load
 
 
 def main():
-    files = extract("/dogs")
+    files = extract("/home/azureuser/dogs")
     load(files)
 
 
