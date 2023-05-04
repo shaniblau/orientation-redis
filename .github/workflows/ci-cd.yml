@@ -38,7 +38,7 @@ jobs:
         run: sudo apt-get install -y sshpass
       - name: upload app
         run: |
-          sshpass -p ${{ secrets.SSH_PASSWORD }} ssh -o StrictHostKeyChecking=no azureuser@40.114.92.103 "rm -r orientation-python && git clone https://github.com/shaniblau/orientation-python.git && cd orientation-python && pip install -r requirements.txt && python3 main.py"
+          sshpass -p ${{ secrets.SSH_PASSWORD }} ssh -e StrictHostKeyChecking=no azureuser@40.114.92.103 "rm -r orientation-python && git clone https://github.com/shaniblau/orientation-python.git && cd orientation-python && pip install -r requirements.txt && python3 main.py"
       
           
 
