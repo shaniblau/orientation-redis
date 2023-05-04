@@ -4,7 +4,7 @@ from load import load
 
 def main():
     files = extract("/home/azureuser/dogs")
-    load(files)
+    load("/home/azureuser/dogs", files)
 
 
 if __name__ == '__main__':
