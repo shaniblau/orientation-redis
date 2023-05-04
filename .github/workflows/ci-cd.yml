@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 jobs:
-  ci:
+  run-app:
 
     runs-on: ubuntu-latest
 
@@ -25,20 +25,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-  cd:
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Install SSH client
         run: sudo apt-get install -y sshpass
       - name: upload app
         run: |
           sshpass -p 'Password123!' ssh -o StrictHostKeyChecking=no azureuser@40.114.92.103 "rm -r orientation-redis && git clone https://github.com/shaniblau/orientation-redis.git && cd orientation-redis && pip install -r requirements.txt && python3 main.py"
-      
-          
+
 
