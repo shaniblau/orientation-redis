@@ -6,6 +6,6 @@ redis = Redis(host='localhost', port=6379, decode_responses=True)
 
 def load(path, files_names):
     for name in files_names:
-        with open(f"{path}/{name}", 'r') as file:
-            file_content = file.read()
-            redis.set(name, file_content)
+        img = open(f"{path}/{name}", "rb").read()
+        redis.set(name, img)
+

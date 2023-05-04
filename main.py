@@ -3,8 +3,8 @@ from load import load
 
 
 def main():
-    files = extract("/home/azureuser/dogs")
-    load("/home/azureuser/dogs", files)
+    files = extract("../dogs")
+    load("../dogs", files)
 
 
 if __name__ == '__main__':
